@@ -7,9 +7,8 @@
 
 [node name="CameraAttach" type="Marker2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="CameraAttach" node_paths=PackedStringArray("camera_attach")]
+[node name="Camera2D" type="Camera2D" parent="CameraAttach"]
 script = ExtResource("1_ahgpj")
-camera_attach = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
