@@ -11,24 +11,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Get mouse position
-	var mousePos: Vector2 = get_global_mouse_position()
-	
-	# Get difference between mouse and camera_attach	
-	var diff: Vector2 = camera_attach.position - mousePos
-	
-	# Normalize value to maximum movement range.
-	print(diff)	
+	# Get mouse position and
+	# Divide by viewport x and y to get a value ranging from -1 to 1
+	#		-1
+	# 	-1	 	 1
+	#		 1
+	var mousePosition: Vector2 = Vector2(get_local_mouse_position().x / (get_viewport().size.x / 2), get_local_mouse_position().y / (get_viewport().size.y / 2))
+	# Multiply with the maximum movement of the camera
+	var movementRange = mousePosition * movement_range_px
 	
 	# Set position to the difference
+	position = movementRange
 	
-	position = camera_attach.position
-	
-	
-	
-	
-	
-	##position = mousePos
 	#var left = limit_left + (offset.x*zoom.x) + get_viewport().size.x * zoom.x / 10
 	#var right = limit_right - (offset.x*zoom.x) - get_viewport().size.x * zoom.x / 10
 	#var top = limit_top + (offset.y*zoom.y) + get_viewport().size.y * zoom.y / 10 
