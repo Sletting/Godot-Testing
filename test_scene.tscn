@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ksm3xcj0q0wd"]
+
+[ext_resource type="Script" path="res://camera_move.gd" id="1_ahgpj"]
+[ext_resource type="Texture2D" uid="uid://b6kd5s18qrl4t" path="res://field-1728099_1280.jpg" id="1_cfjbp"]
+
+[node name="Main" type="Node"]
+
+[node name="CameraAttach" type="Marker2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraAttach" node_paths=PackedStringArray("camera_attach")]
+script = ExtResource("1_ahgpj")
+camera_attach = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Canvas" type="Sprite2D" parent="."]
+position = Vector2(100, -1)
+scale = Vector2(1.76719, 1.85625)
+texture = ExtResource("1_cfjbp")
